@@ -1,12 +1,13 @@
 interface ExperienceProps {
-  data: Array<{
-    company: string
-    position: string
-    location: string
-    year: string
-    description: string
-  }>
+  data: readonly {
+    company: string;
+    position: string;
+    location: string;
+    year: string;
+    description: string;
+  }[];
 }
+
 
 export default function Experience({ data }: ExperienceProps) {
   return (

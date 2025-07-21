@@ -1,11 +1,12 @@
 interface ProjectsProps {
-  data: Array<{
-    name: string
-    year: string
-    description: string
-    status: string
-  }>
+  data: readonly {
+    name: string;
+    year: string;
+    description: string;
+    status: string;
+  }[];
 }
+
 
 export default function Projects({ data }: ProjectsProps) {
   return (

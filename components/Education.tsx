@@ -1,11 +1,12 @@
 interface EducationProps {
   data: {
-    institution: string
-    degree: string
-    year: string
-    courses: string[]
+    institution: string;
+    degree: string;
+    year: string;
+    courses: readonly string[];
   }
 }
+
 
 export default function Education({ data }: EducationProps) {
   return (

@@ -1,9 +1,9 @@
 interface SkillsProps {
   data: {
-    languages: string[]
-    webFrameworks: string[]
-    devTools: string[]
-    concepts: string[]
+    languages: readonly string[];
+    webFrameworks: readonly string[];
+    devTools: readonly string[];
+    concepts: readonly string[];
   }
 }
 

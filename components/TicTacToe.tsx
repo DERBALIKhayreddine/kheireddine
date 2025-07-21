@@ -3,12 +3,13 @@
 import { useState, useCallback } from "react"
 
 type Player = "X" | "O" | null
+type GameResult = Player | "draw"
 type Board = Player[]
 
 export default function TicTacToe() {
   const [board, setBoard] = useState<Board>(Array(9).fill(null))
   const [currentPlayer, setCurrentPlayer] = useState<"X" | "O">("X")
-  const [winner, setWinner] = useState<Player>(null)
+  const [winner, setWinner] = useState<GameResult>(null)
   const [gameMode, setGameMode] = useState<"human" | "ai">("human")
   const [scores, setScores] = useState({ X: 0, O: 0, draws: 0 })
 
@@ -23,7 +24,7 @@ export default function TicTacToe() {
     [2, 4, 6],
   ]
 
-  const checkWinner = useCallback((board: Board): Player => {
+  const checkWinner = useCallback((board: Board): GameResult => {
     for (const [a, b, c] of winningCombinations) {
       if (board[a] && board[a] === board[b] && board[a] === board[c]) {
         return board[a]
@@ -105,7 +106,6 @@ export default function TicTacToe() {
 
     if (gameMode === "ai" && currentPlayer === "X") {
       setCurrentPlayer("O")
-      // AI move after a short delay
       setTimeout(() => {
         const aiMove = getBestMove(newBoard)
         if (aiMove !== -1) {
